@@ -65,9 +65,7 @@ class MainActivity: FlutterActivity() {
         try{
             var sdkConfigs =  ZCRMSDKConfigs.getBuilder(clientID,clientSecret,"ZohoCRM.users.ALL,ZohoCRM.modules.ALL,ZohoCRM.settings.ALL")
                 .setHttpRequestMode(CommonUtil.HttpRequestMode.ASYNC).enableSignUp(true)
-                .setLoggingPreferences(Level.ALL, true).setRequestHeaders(hashMapOf(
-                    Pair("X-ZOHO-SERVICE", "crmmobile")
-                )).build()
+                .setLoggingPreferences(Level.ALL, true).build()
             ZCRMSDKClient.getInstance(applicationContext)
                 .init(sdkConfigs, object : ZCRMSDKClient.Companion.ZCRMInitCallback {
                     override fun onSuccess() {
